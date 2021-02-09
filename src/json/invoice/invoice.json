@@ -1,0 +1,14 @@
+{
+  "contents": [
+    {
+      "name": "Conventional Invoice",
+      "count": 20,
+      "sub": "invoice/conventional_invoice.json"
+    },
+    {
+      "name": "Productive Invoice",
+      "count": 15,
+      "sub": "invoice/productive_invoice.json"
+    }
+  ]
+}

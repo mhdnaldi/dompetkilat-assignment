@@ -1,0 +1,24 @@
+{
+  "contents": [
+    {
+      "name": "Invoice Financing",
+      "count": 35,
+      "sub": "invoice/invoice.json"
+    },
+    {
+      "name": "OSF Financing",
+      "count": 25,
+      "sub": "invoice/osf.json"
+    },
+    {
+      "name": "SBN",
+      "count": 10,
+      "sub": "invoice/sbn.json"
+    },
+    {
+      "name": "Reksadana",
+      "count": 20,
+      "sub": "invoice/reksadana.json"
+    }
+  ]
+}

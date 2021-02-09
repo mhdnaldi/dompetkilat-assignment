@@ -1,0 +1,14 @@
+{
+  "contents": [
+    {
+      "name": "Conventional OSF",
+      "count": 15,
+      "sub": "osf/conventional_osf.json"
+    },
+    {
+      "name": "Productive OSF",
+      "count": 10,
+      "sub": "osf/productive_osf.json"
+    }
+  ]
+}

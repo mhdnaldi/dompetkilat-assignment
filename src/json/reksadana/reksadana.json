@@ -1,0 +1,124 @@
+{
+  "contents": [
+    {
+      "name": "INB",
+      "amount": 20000000,
+      "return": -1,
+      "sub": null
+    },
+    {
+      "name": "PT TELMOM",
+      "amount": 10000000,
+      "return": 1,
+      "sub": null
+    },
+    {
+      "name": "PT MOKLET",
+      "amount": 30000000,
+      "return": 2,
+      "sub": null
+    },
+    {
+      "name": "PT IRIDNAM",
+      "amount": 400000000,
+      "return": -0.2,
+      "sub": null
+    },
+    {
+      "name": "PT KML",
+      "amount": 200000000,
+      "return": -0.1,
+      "sub": null
+    },
+    {
+      "name": "PT MNO",
+      "amount": 90000000,
+      "return": 1.25,
+      "sub": null
+    },
+    {
+      "name": "PT GHI",
+      "amount": 80000000,
+      "return": 1.7,
+      "sub": null
+    },
+    {
+      "name": "PT ACB",
+      "amount": 50000000,
+      "return": 1.6,
+      "sub": null
+    },
+    {
+      "name": "PT FIN",
+      "amount": 700000000,
+      "return": 1,
+      "sub": null
+    },
+    {
+      "name": "PT LENO",
+      "amount": 900000000,
+      "return": -0.125,
+      "sub": null
+    },
+    {
+      "name": "BGT",
+      "amount": 20000000,
+      "return": -1,
+      "sub": null
+    },
+    {
+      "name": "PT HEHEHE",
+      "amount": 10000000,
+      "return": 1,
+      "sub": null
+    },
+    {
+      "name": "PT TELMI",
+      "amount": 30000000,
+      "return": 2,
+      "sub": null
+    },
+    {
+      "name": "PT MANDARA",
+      "amount": 400000000,
+      "return": -0.2,
+      "sub": null
+    },
+    {
+      "name": "PT KMKM",
+      "amount": 200000000,
+      "return": -0.1,
+      "sub": null
+    },
+    {
+      "name": "PT RTU",
+      "amount": 90000000,
+      "return": 1.25,
+      "sub": null
+    },
+    {
+      "name": "PT REMBO",
+      "amount": 80000000,
+      "return": 1.7,
+      "sub": null
+    },
+    {
+      "name": "PT IVTRE",
+      "amount": 50000000,
+      "return": 1.6,
+      "sub": null
+    },
+    {
+      "name": "PT HON",
+      "amount": 700000000,
+      "return": 1,
+      "sub": null
+    },
+    {
+      "name": "PT MAC",
+      "amount": 900000000,
+      "return": -0.125,
+      "sub": null
+    }
+  ]
+}

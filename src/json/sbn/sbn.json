@@ -1,0 +1,84 @@
+{
+  "contents": [
+    {
+      "name": "SBR XXX",
+      "amount": 1000000,
+      "tenor": 120,
+      "rate": 7,
+      "type": "SBR",
+      "sub": null
+    },
+    {
+      "name": "SBR YYY",
+      "amount": 2000000,
+      "tenor": 120,
+      "rate": 8,
+      "type": "SBR",
+      "sub": null
+    },
+    {
+      "name": "SBR ZZZ",
+      "amount": 10000000,
+      "tenor": 120,
+      "rate": 7.5,
+      "type": "SBR",
+      "sub": null
+    },
+    {
+      "name": "ST XXX",
+      "amount": 30000000,
+      "tenor": 120,
+      "rate": 7,
+      "type": "ST",
+      "sub": null
+    },
+    {
+      "name": "ST YYY",
+      "amount": 4000000,
+      "tenor": 120,
+      "rate": 7,
+      "type": "ST",
+      "sub": null
+    },
+    {
+      "name": "SBR FGH",
+      "amount": 10000000,
+      "tenor": 120,
+      "rate": 7,
+      "type": "SBR",
+      "sub": null
+    },
+    {
+      "name": "SBR JKL",
+      "amount": 20000000,
+      "tenor": 120,
+      "rate": 8,
+      "type": "SBR",
+      "sub": null
+    },
+    {
+      "name": "SBR ERT",
+      "amount": 100000000,
+      "tenor": 120,
+      "rate": 7.5,
+      "type": "SBR",
+      "sub": null
+    },
+    {
+      "name": "ST VBN",
+      "amount": 380000000,
+      "tenor": 120,
+      "rate": 7,
+      "type": "ST",
+      "sub": null
+    },
+    {
+      "name": "ST IOP",
+      "amount": 4000000,
+      "tenor": 120,
+      "rate": 7,
+      "type": "ST",
+      "sub": null
+    }
+  ]
+}

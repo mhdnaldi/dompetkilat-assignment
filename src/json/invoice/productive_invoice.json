@@ -1,0 +1,124 @@
+{
+  "contents": [
+    {
+      "name": "PT QWE",
+      "amount": 1000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT RTO",
+      "amount": 2000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT DOTA",
+      "amount": 50000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT POLL",
+      "amount": 10000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT VOW",
+      "amount": 20000000,
+      "tenor": 120,
+      "grade": "B+",
+      "rate": 14,
+      "sub": null
+    },
+    {
+      "name": "PT RND",
+      "amount": 100000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT GHI",
+      "amount": 2000000,
+      "tenor": 120,
+      "grade": "B",
+      "rate": 16,
+      "sub": null
+    },
+    {
+      "name": "PT KLO",
+      "amount": 10000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT YE",
+      "amount": 1000000,
+      "tenor": 120,
+      "grade": "B",
+      "rate": 16,
+      "sub": null
+    },
+    {
+      "name": "PT CWP",
+      "amount": 4000000,
+      "tenor": 120,
+      "grade": "B+",
+      "rate": 14,
+      "sub": null
+    },
+    {
+      "name": "PT ERP",
+      "amount": 100000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT SC",
+      "amount": 2000000,
+      "tenor": 120,
+      "grade": "B",
+      "rate": 16,
+      "sub": null
+    },
+    {
+      "name": "PT NOTE",
+      "amount": 10000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT TYU",
+      "amount": 1000000,
+      "tenor": 120,
+      "grade": "B",
+      "rate": 16,
+      "sub": null
+    },
+    {
+      "name": "PT ZXC",
+      "amount": 4000000,
+      "tenor": 120,
+      "grade": "B+",
+      "rate": 14,
+      "sub": null
+    }
+  ]
+}

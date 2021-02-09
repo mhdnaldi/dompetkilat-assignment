@@ -1,0 +1,84 @@
+{
+  "contents": [
+    {
+      "name": "PT QWE",
+      "amount": 1000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT RTO",
+      "amount": 2000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT DOTA",
+      "amount": 50000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT POLL",
+      "amount": 10000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT VOW",
+      "amount": 20000000,
+      "tenor": 120,
+      "grade": "B+",
+      "rate": 14,
+      "sub": null
+    },
+    {
+      "name": "PT LOP",
+      "amount": 1000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT IOP",
+      "amount": 2000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT ABA",
+      "amount": 50000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT SKY",
+      "amount": 10000000,
+      "tenor": 120,
+      "grade": "A",
+      "rate": 12,
+      "sub": null
+    },
+    {
+      "name": "PT SAMS",
+      "amount": 20000000,
+      "tenor": 120,
+      "grade": "B+",
+      "rate": 14,
+      "sub": null
+    }
+  ]
+}
