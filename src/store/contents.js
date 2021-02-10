@@ -9,21 +9,28 @@ export default {
         getData(state, payload) {
             state.contents = payload;
         },
-        getInvoiceData() {},
+        getInvoiceData(state, payload) {
+            state.invoiceData = payload;
+            console.log(state.invoiceData);
+        },
     },
     actions: {
         getData(context) {
             return new Promise(() => {
-                axios.get('http://localhost:3000/main').then((res) => {
-                    context.commit('getData', res.data.contents);
-                });
+                axios
+                    .get('http://localhost:3000/main')
+                    .then((res) =>
+                        context.commit('getData', res.data.contents),
+                    );
             });
         },
         getInvoiceData(context, payload) {
             return new Promise(() => {
                 axios
-                    .get(`http://localhost:3001/contents/${payload}`)
-                    .then((res) => console.log(res));
+                    .get(`http://localhost:3000/${payload}`)
+                    .then((res) =>
+                        context.commit('getInvoiceData', res.data.contents),
+                    );
             });
         },
     },

@@ -14,16 +14,12 @@ const sbn = require('./sbn/sbn.json');
 module.exports = () => {
     return {
         main,
-        invoice: {
-            ...invoice,
-            conventional: conventionalInvoice,
-            productive: productiveInvoice,
-        },
-        osf: {
-            ...osf,
-            convetional: conventionalOsf,
-            productive: productiveOsf,
-        },
+        invoice,
+        conventional_invoice: conventionalInvoice,
+        productive_invoice: productiveInvoice,
+        osf,
+        conventional_osf: conventionalOsf,
+        productive_osf: productiveOsf,
         reksadana,
         sbn,
     };

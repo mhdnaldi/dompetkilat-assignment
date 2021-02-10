@@ -30,7 +30,10 @@ export default {
     methods: {
         ...mapActions(['getData', 'getInvoiceData']),
         getInvoice(data) {
-            this.getInvoiceData(data.sub);
+            // SLICE ENDPOINT
+            let query = data.sub.slice(8, data.sub.length); // remove "invoice/"
+            query = query.slice(0, query.length - 5); // remove ".json"
+            this.getInvoiceData(query);
         },
     },
     computed: {
