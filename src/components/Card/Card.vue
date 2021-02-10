@@ -1,26 +1,22 @@
 <template>
-    <div class="card">
+    <div class="card" @click="click">
         <img src="../../assets/images/docs.png" alt="" />
         <div class="desc">
-            <div class="num">20</div>
-            <h2>title</h2>
+            <div class="count">{{ content.count }}</div>
+            <h2>{{ content.name }}</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non et
-                corrupti repellat dolorum ad ipsa id! Possimus dicta libero
-                assumenda.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia
+                dignissimos ducimus nihil dolore laborum molestiae facilis,
+                fugit suscipit dolores doloremque. Nesciunt rerum eius ipsum,
+                molestias laborum fugiat optio distinctio aliquam!
             </p>
         </div>
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
 export default {
-    data() {},
-    computed: {
-        ...mapGetters({ data }),
-    },
+    props: ['content', 'click'],
 };
 </script>
 
@@ -45,7 +41,7 @@ export default {
         contrast(1000%);
 }
 
-.num {
+.count {
     position: absolute;
     right: 15px;
     font-weight: bold;
@@ -57,7 +53,7 @@ export default {
     margin: 10px auto;
 }
 
-.desc:hover .num,
+.desc:hover .count,
 .desc:hover h2,
 .desc:hover p {
     color: #fff;
@@ -75,6 +71,6 @@ export default {
 img {
     width: 100px;
     margin: 10px auto;
-    height: 110px;
+    height: 100px;
 }
 </style>
