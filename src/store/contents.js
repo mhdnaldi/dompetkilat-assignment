@@ -4,14 +4,20 @@ export default {
     state: {
         contents: [],
         invoiceData: [],
+        allData: [],
     },
     mutations: {
         getData(state, payload) {
             state.contents = payload;
+            console.log(payload);
         },
         getInvoiceData(state, payload) {
-            state.invoiceData = payload;
-            console.log(state.invoiceData);
+            if (payload.length < 5) {
+                state.invoiceData = payload;
+            } else {
+                state.allData = payload;
+            }
+            console.log(state.allData);
         },
     },
     actions: {
@@ -37,6 +43,9 @@ export default {
     getters: {
         contents(state) {
             return state.contents;
+        },
+        invoiceData(state) {
+            return state.invoiceData;
         },
     },
 };

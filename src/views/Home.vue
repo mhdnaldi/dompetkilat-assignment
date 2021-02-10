@@ -6,7 +6,9 @@
             v-for="(content, index) in contents"
             :key="index"
             :content="content"
+            :invoiceData="invoiceData"
             :invoice="() => getInvoice(content)"
+            :check="checkCount"
         />
     </div>
 </template>
@@ -16,7 +18,6 @@ import { mapActions, mapGetters } from 'vuex';
 import Header from '../components/Header/Header.vue';
 import Title from '../components/Title/Title.vue';
 import Card from '../components/Card/Card.vue';
-// import { main } from '../json/main';
 
 export default {
     components: {
@@ -27,9 +28,15 @@ export default {
     mounted() {
         this.getData();
     },
+    data() {
+        return {
+            checkCount: 0,
+        };
+    },
     methods: {
         ...mapActions(['getData', 'getInvoiceData']),
         getInvoice(data) {
+            this.checkCount = data.count; // for validation
             // SLICE ENDPOINT
             let query = data.sub.slice(8, data.sub.length); // remove "invoice/"
             query = query.slice(0, query.length - 5); // remove ".json"
@@ -37,7 +44,7 @@ export default {
         },
     },
     computed: {
-        ...mapGetters(['contents']),
+        ...mapGetters(['contents', 'invoiceData']),
     },
 };
 </script>

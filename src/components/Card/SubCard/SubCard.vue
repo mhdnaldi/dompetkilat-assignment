@@ -1,7 +1,7 @@
 <template>
-    <section>
-        <div class="card" @click="invoice">
-            <img src="../../assets/images/docs.png" alt="" />
+    <div class="container">
+        <div class="card" v-for="(content, index) in subContent" :key="index">
+            <img src="../../../assets/images/docs.png" alt="" />
             <div class="desc">
                 <div class="count">{{ content.count }}</div>
                 <h3>{{ content.name }}</h3>
@@ -14,22 +14,21 @@
                 </p>
             </div>
         </div>
-        <SubCard :subContent="invoiceData" :check="check" />
-    </section>
+    </div>
 </template>
 
 <script>
-import SubCard from './SubCard/SubCard.vue';
-
 export default {
-    props: ['content', 'invoice', 'invoiceData', 'check'],
-    components: {
-        SubCard,
-    },
+    props: ['subContent', 'check'],
 };
 </script>
 
 <style scoped>
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .card {
     cursor: pointer;
     display: grid;
