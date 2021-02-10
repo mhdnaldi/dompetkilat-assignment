@@ -13,6 +13,17 @@
     </div>
 </template>
 
+<script>
+import { mapGetters } from 'vuex';
+
+export default {
+    data() {},
+    computed: {
+        ...mapGetters({ data }),
+    },
+};
+</script>
+
 <style scoped>
 .card {
     display: grid;
@@ -27,6 +38,11 @@
 .card:active {
     border: 1px solid rgb(223, 50, 51);
     background-color: rgb(243, 93, 93);
+}
+
+.card:hover img {
+    filter: grayscale(100%) sepia(100%) brightness(200%) saturate(0%)
+        contrast(1000%);
 }
 
 .num {
@@ -53,7 +69,7 @@
 
 .desc p {
     color: rgb(148, 146, 146);
-    font-size: 14px;
+    font-size: 15px;
 }
 
 img {

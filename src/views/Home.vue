@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import Header from '../components/Header/Header.vue';
 import Title from '../components/Title/Title.vue';
 import Card from '../components/Card/Card.vue';
@@ -16,6 +17,12 @@ export default {
         Header,
         Title,
         Card,
+    },
+    mounted() {
+        this.getData();
+    },
+    methods: {
+        ...mapActions(['getData']),
     },
 };
 </script>
