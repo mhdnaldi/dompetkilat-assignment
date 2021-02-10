@@ -1,9 +1,9 @@
 <template>
-    <div class="card" @click="click">
+    <div class="card" @click="invoice">
         <img src="../../assets/images/docs.png" alt="" />
         <div class="desc">
             <div class="count">{{ content.count }}</div>
-            <h2>{{ content.name }}</h2>
+            <h3>{{ content.name }}</h3>
             <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia
                 dignissimos ducimus nihil dolore laborum molestiae facilis,
@@ -16,16 +16,17 @@
 
 <script>
 export default {
-    props: ['content', 'click'],
+    props: ['content', 'invoice'],
 };
 </script>
 
 <style scoped>
 .card {
+    cursor: pointer;
     display: grid;
     grid-template-columns: 120px 1fr;
     border: 1px solid #ccc;
-    margin: 10px 0;
+    margin: 15px 0;
     border-radius: 10px;
     transition: 0.3s;
 }
@@ -54,12 +55,12 @@ export default {
 }
 
 .desc:hover .count,
-.desc:hover h2,
+.desc:hover h3,
 .desc:hover p {
     color: #fff;
 }
 
-.desc h2 {
+.desc h3 {
     color: rgb(223, 50, 51);
 }
 

@@ -6,7 +6,7 @@
             v-for="(content, index) in contents"
             :key="index"
             :content="content"
-            @click="getInfo(content)"
+            :invoice="() => getInvoice(content)"
         />
     </div>
 </template>
@@ -16,6 +16,7 @@ import { mapActions, mapGetters } from 'vuex';
 import Header from '../components/Header/Header.vue';
 import Title from '../components/Title/Title.vue';
 import Card from '../components/Card/Card.vue';
+// import { main } from '../json/main';
 
 export default {
     components: {
@@ -27,9 +28,9 @@ export default {
         this.getData();
     },
     methods: {
-        ...mapActions(['getData']),
-        getInfo(data) {
-            console.log(data, 'test');
+        ...mapActions(['getData', 'getInvoiceData']),
+        getInvoice(data) {
+            this.getInvoiceData(data.sub);
         },
     },
     computed: {
