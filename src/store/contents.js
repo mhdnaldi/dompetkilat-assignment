@@ -1,21 +1,27 @@
 import axios from 'axios';
+import router from '../router/index';
 
 export default {
     state: {
         contents: [],
         invoiceData: [],
         allData: [],
+        allDataKey: [],
     },
     mutations: {
         getData(state, payload) {
             state.contents = payload;
-            console.log(payload);
         },
         getInvoiceData(state, payload) {
             if (payload.length < 5) {
                 state.invoiceData = payload;
             } else {
                 state.allData = payload;
+                state.allDataKey = Object.keys(payload[0])
+                    .map((el) => el)
+                    .filter((el) => el !== 'sub');
+                console.log(state.allDataKey);
+                router.push('/data');
             }
             console.log(state.allData);
         },
@@ -46,6 +52,12 @@ export default {
         },
         invoiceData(state) {
             return state.invoiceData;
+        },
+        allData(state) {
+            return {
+                key: state.allDataKey,
+                data: state.allData,
+            };
         },
     },
 };

@@ -2,76 +2,57 @@
     <div class="table">
         <table>
             <tr>
-                <th>Name</th>
-                <th>Amount</th>
-                <th>Tenor</th>
-                <th>Rate</th>
-                <th>Type</th>
+                <th v-for="key in allData.key" :key="key">
+                    {{ key.toUpperCase() }}
+                </th>
             </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-            </tr>
-            <tr>
-                <td>Ernst Handel</td>
-                <td>Roland Mendel</td>
-                <td>Austria</td>
-                <td>Roland Mendel</td>
-                <td>Austria</td>
-            </tr>
-            <tr>
-                <td>Island Trading</td>
-                <td>Helen Bennett</td>
-                <td>UK</td>
-                <td>Helen Bennett</td>
-                <td>UK</td>
-            </tr>
-            <tr>
-                <td>Laughing Bacchus Winecellars</td>
-                <td>Yoshi Tannamuri</td>
-                <td>Canada</td>
-                <td>Yoshi Tannamuri</td>
-                <td>Canada</td>
-            </tr>
-            <tr>
-                <td>Magazzini Alimentari Riuniti</td>
-                <td>Giovanni Rovelli</td>
-                <td>Italy</td>
-                <td>Giovanni Rovelli</td>
-                <td>Italy</td>
+            <tr v-for="(data, index) in allData.data" :key="index">
+                <td>{{ data.name }}</td>
+                <td>
+                    <strong>Rp.{{ data.amount }}</strong>
+                </td>
+                <td>{{ data.tenor || data.return }}</td>
+                <td>{{ data.rate }}</td>
+                <td>{{ data.type }}</td>
             </tr>
         </table>
     </div>
 </template>
 
+<script>
+import { mapGetters } from 'vuex';
+
+export default {
+    computed: {
+        ...mapGetters(['allData']),
+    },
+};
+</script>
+
 <style scoped>
 .table {
     overflow: scroll;
     width: 100%;
-    height: 300px;
+    height: 250px;
 }
 
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
 }
 
 td,
 th {
     border-top: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd;
-    text-align: left;
     padding: 8px;
+    height: 40px;
+}
+
+td {
+    text-align: center;
 }
 /* 
 tr:nth-child(even) {

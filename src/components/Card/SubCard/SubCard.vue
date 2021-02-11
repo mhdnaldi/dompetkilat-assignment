@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div class="card" v-for="(content, index) in subContent" :key="index">
+            <div class="doc">DOC</div>
             <img src="../../../assets/images/docs.png" alt="" />
             <div class="desc">
                 <div class="count">{{ content.count }}</div>
@@ -39,16 +40,29 @@ export default {
     transition: 0.3s;
 }
 
+.doc {
+    position: absolute;
+    left: 19.5px;
+    top: 49px;
+    font-weight: bold;
+    display: block;
+    color: white;
+}
+
+.card:hover .doc {
+    color: white;
+}
+
 .card:hover,
 .card:active {
     border: 1px solid rgb(223, 50, 51);
     background-color: rgb(243, 93, 93);
 }
 
-.card:hover img {
+/* .card:hover img {
     filter: grayscale(100%) sepia(100%) brightness(200%) saturate(0%)
         contrast(1000%);
-}
+} */
 
 .count {
     position: absolute;
