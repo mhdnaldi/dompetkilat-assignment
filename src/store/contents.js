@@ -20,10 +20,9 @@ export default {
                 state.allDataKey = Object.keys(payload[0])
                     .map((el) => el)
                     .filter((el) => el !== 'sub');
-                console.log(state.allDataKey);
                 router.push('/data');
+                console.log(payload);
             }
-            console.log(state.allData);
         },
     },
     actions: {

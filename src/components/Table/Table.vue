@@ -12,8 +12,8 @@
                     <strong>Rp.{{ data.amount }}</strong>
                 </td>
                 <td>{{ data.tenor || data.return }}</td>
+                <td>{{ data.type || data.grade }}</td>
                 <td>{{ data.rate }}</td>
-                <td>{{ data.type }}</td>
             </tr>
         </table>
     </div>
@@ -54,8 +54,4 @@ th {
 td {
     text-align: center;
 }
-/* 
-tr:nth-child(even) {
-    background-color: #dddddd;
-} */
 </style>

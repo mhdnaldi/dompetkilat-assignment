@@ -7,8 +7,8 @@
             :key="index"
             :content="content"
             :invoiceData="invoiceData"
-            :invoice="() => getInvoice(content)"
-            :check="checkCount"
+            :getEndpoint="(data) => getEndpoint(content, data)"
+            :show="showCard"
         />
     </div>
 </template>
@@ -18,6 +18,7 @@ import { mapActions, mapGetters } from 'vuex';
 import Header from '../components/Header/Header.vue';
 import Title from '../components/Title/Title.vue';
 import Card from '../components/Card/Card.vue';
+import filteredEndpoint from '../helper/filteredEndpoint';
 
 export default {
     components: {
@@ -30,17 +31,17 @@ export default {
     },
     data() {
         return {
-            checkCount: 0,
+            showCard: false,
         };
     },
     methods: {
         ...mapActions(['getData', 'getInvoiceData']),
-        getInvoice(data) {
-            this.checkCount = data.count; // for validation
+        getEndpoint(data, subData) {
             // SLICE ENDPOINT
-            let query = data.sub.slice(8, data.sub.length); // remove "invoice/"
-            query = query.slice(0, query.length - 5); // remove ".json"
-            this.getInvoiceData(query);
+            // let query = data.sub.slice(8, data.sub.length); // remove "invoice/"
+            // query = query.slice(0, query.length - 5); // remove ".json"
+            this.showCard = !this.showCard;
+            this.getInvoiceData(filteredEndpoint(data, subData));
         },
     },
     computed: {

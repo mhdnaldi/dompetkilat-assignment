@@ -3,7 +3,7 @@
         <div class="card" v-for="(content, index) in subContent" :key="index">
             <div class="doc">DOC</div>
             <img src="../../../assets/images/docs.png" alt="" />
-            <div class="desc">
+            <div class="desc" @click="getEndpoint(content)">
                 <div class="count">{{ content.count }}</div>
                 <h3>{{ content.name }}</h3>
                 <p>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    props: ['subContent', 'check'],
+    props: ['subContent', 'invoice', 'getEndpoint'],
 };
 </script>
 

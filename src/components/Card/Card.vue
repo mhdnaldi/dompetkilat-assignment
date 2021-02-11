@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="card" @click="invoice">
+        <div class="card" @click="getEndpoint">
             <div class="doc">DOC</div>
             <img src="../../assets/images/docs.png" alt="" />
             <div class="desc">
@@ -15,7 +15,7 @@
                 </p>
             </div>
         </div>
-        <SubCard :subContent="invoiceData" :check="check" />
+        <SubCard :subContent="invoiceData" :getEndpoint="getEndpoint" />
     </section>
 </template>
 
@@ -23,7 +23,7 @@
 import SubCard from './SubCard/SubCard.vue';
 
 export default {
-    props: ['content', 'invoice', 'invoiceData', 'check'],
+    props: ['content', 'getEndpoint', 'invoiceData', 'show'],
     components: {
         SubCard,
     },
