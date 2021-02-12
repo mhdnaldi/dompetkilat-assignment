@@ -3,7 +3,13 @@
         <div class="img">
             <img src="../../assets/images/search.png" alt="" />
         </div>
-        <input type="text" name="" id="" placeholder="Search" />
+        <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Search"
+            @input="filteredDataProps"
+        />
         <select name="cars" id="cars">
             <option value="volvo">Volvo</option>
             <option value="saab">Saab</option>
@@ -12,6 +18,12 @@
         </select>
     </div>
 </template>
+
+<script>
+export default {
+    props: ['filteredDataProps'],
+};
+</script>
 
 <style scoped>
 .form {

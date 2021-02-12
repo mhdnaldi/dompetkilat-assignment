@@ -28,6 +28,7 @@ export default {
     },
     mounted() {
         this.getData();
+        this.test();
     },
     data() {
         return {
@@ -35,11 +36,8 @@ export default {
         };
     },
     methods: {
-        ...mapActions(['getData', 'getInvoiceData']),
+        ...mapActions(['getData', 'getInvoiceData', 'test']),
         getEndpoint(data, subData) {
-            // SLICE ENDPOINT
-            // let query = data.sub.slice(8, data.sub.length); // remove "invoice/"
-            // query = query.slice(0, query.length - 5); // remove ".json"
             this.showCard = !this.showCard;
             this.getInvoiceData(filteredEndpoint(data, subData));
         },

@@ -31,7 +31,6 @@ export default {
 }
 
 .card {
-    cursor: pointer;
     display: grid;
     grid-template-columns: 120px 1fr;
     border: 1px solid #ccc;
@@ -59,11 +58,6 @@ export default {
     background-color: rgb(243, 93, 93);
 }
 
-/* .card:hover img {
-    filter: grayscale(100%) sepia(100%) brightness(200%) saturate(0%)
-        contrast(1000%);
-} */
-
 .count {
     position: absolute;
     right: 15px;
@@ -72,6 +66,7 @@ export default {
 }
 
 .desc {
+    cursor: pointer;
     position: relative;
     margin: 10px auto;
 }

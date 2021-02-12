@@ -7,6 +7,7 @@ export default {
         invoiceData: [],
         allData: [],
         allDataKey: [],
+        endPoint: '',
     },
     mutations: {
         getData(state, payload) {
@@ -21,8 +22,10 @@ export default {
                     .map((el) => el)
                     .filter((el) => el !== 'sub');
                 router.push('/data');
-                console.log(payload);
             }
+        },
+        endPoint(state, payload) {
+            state.endPoint = payload;
         },
     },
     actions: {
@@ -36,12 +39,32 @@ export default {
             });
         },
         getInvoiceData(context, payload) {
+            console.log(payload);
             return new Promise(() => {
                 axios
                     .get(`http://localhost:3000/${payload}`)
-                    .then((res) =>
-                        context.commit('getInvoiceData', res.data.contents),
+                    .then(
+                        (res) =>
+                            context.commit('getInvoiceData', res.data.contents),
+                        context.commit('endPoint', payload),
                     );
+            });
+        },
+        test() {
+            return new Promise(() => {
+                axios
+                    .get(`http://localhost:3000/sbn?contents.type=ST`)
+                    .then((res) => console.log(res));
+            });
+        },
+        getFilteredData(context, payload) {
+            console.log(payload);
+            return new Promise(() => {
+                axios
+                    .get(
+                        `http://localhost:3000/${payload.endPoint}?contents.name=${payload.query}`,
+                    )
+                    .then((res) => console.log(res));
             });
         },
     },
@@ -57,6 +80,9 @@ export default {
                 key: state.allDataKey,
                 data: state.allData,
             };
+        },
+        endPoint(state) {
+            return state.endPoint;
         },
     },
 };
