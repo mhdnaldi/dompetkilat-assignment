@@ -2,7 +2,7 @@
     <div class="container">
         <Header />
         <Title />
-        <Form :filteredDataProps="filteredData" />
+        <Form :filteredDataProps="filteredData" :sortProps="sortBy" />
         <Table />
     </div>
 </template>
@@ -37,7 +37,7 @@ export default {
         },
     },
     computed: {
-        ...mapGetters(['endPoint']),
+        ...mapGetters(['endPoint', 'sortBy']),
     },
 };
 </script>

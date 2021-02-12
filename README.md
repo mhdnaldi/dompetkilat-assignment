@@ -1,7 +1,5 @@
-<h1 align='center'>Vue JS - Technoker</h1>
+<h1 align='center'>Vue JS - DOMPETKILAT</h1>
   <p align="center">
-    <a href="#">View Demo</a>
-    ·
     <a href="https://github.com/mhdnaldi/dompetkilat-assignment/issues">Report Bug</a>
     ·
     <a href="https://github.com/mhdnaldi/dompetkilat-assignment/issues">Request Feature</a>
@@ -15,12 +13,12 @@
 
 ## Requirements
 
-1. <a href="https://nodejs.org/en/download/">Node Js</a>
+1. <a href="https://nodejs.org/en/download/">Node JS</a>
 2. Node_modules
 
 ## Getting Started
 
-1. Download this Project or you can type `git clone https://github.com/mhdnaldi/dompetkilat-assignment.git`
+1. Download this Project or you can run `git clone https://github.com/mhdnaldi/dompetkilat-assignment.git`
 2. Open app's directory on Terminal
 3. Run `npm install` or `yarn install`
 4. Open new Terminal tab

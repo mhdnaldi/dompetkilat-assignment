@@ -8,20 +8,38 @@
             name=""
             id=""
             placeholder="Search"
-            @keypress.enter="filteredDataProps"
+            @input="filteredDataProps"
         />
         <select name="cars" id="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            <option value="null">All</option>
+            <option
+                v-for="(value, index) in sortProps"
+                :key="index"
+                value="value"
+                @change="sortBy"
+            >
+                {{ value }}
+            </option>
         </select>
     </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
-    props: ['filteredDataProps'],
+    data() {
+        return {
+            sort: '',
+        };
+    },
+    props: ['filteredDataProps', 'sortProps'],
+    methods: {
+        ...mapMutations('setSort'),
+        sortBy(event) {
+            console.log(event);
+        },
+    },
 };
 </script>
 

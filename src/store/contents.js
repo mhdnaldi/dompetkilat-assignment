@@ -1,5 +1,6 @@
 import axios from 'axios';
 import router from '../router/index';
+import sortFilter from '../helper/sortFilter';
 
 export default {
     state: {
@@ -8,6 +9,7 @@ export default {
         allData: [],
         allDataKey: [],
         endPoint: '',
+        sort: [],
     },
     mutations: {
         getData(state, payload) {
@@ -20,19 +22,22 @@ export default {
                 state.invoiceData = payload;
             } else {
                 state.allData = payload;
+                state.sort = sortFilter(state.endPoint);
+                console.log(state.sort);
                 state.allDataKey = Object.keys(payload[0])
                     .map((el) => el)
                     .filter((el) => el !== 'sub');
                 router.push('/data');
             }
-            console.log(state.invoiceData);
-            console.log(state.allData);
         },
         getFilteredData(state, payload) {
             state.allData = payload;
         },
         endPoint(state, payload) {
             state.endPoint = payload;
+        },
+        setSort(state, payload) {
+            state.sort = payload;
         },
     },
     actions: {
@@ -55,23 +60,23 @@ export default {
         },
         getFilteredData(context, payload) {
             return new Promise(() => {
-                if (payload.query === '') {
-                    axios
-                        .get(`http://localhost:3000/${payload.endPoint}`)
-                        .then((res) => {
-                            context.commit('getFilteredData', res.data);
-                        });
-                } else {
-                    axios
-                        .get(
-                            `http://localhost:3000/${
-                                payload.endPoint
-                            }?name=${payload.query.toUpperCase()}`,
-                        )
-                        .then((res) => {
-                            context.commit('getFilteredData', res.data);
-                        });
-                }
+                // if (payload.query === '') {
+                //     axios
+                //         .get(`http://localhost:3000/${payload.endPoint}`)
+                //         .then((res) => {
+                //             context.commit('getFilteredData', res.data);
+                //         });
+                // } else {
+                axios
+                    .get(
+                        `http://localhost:3000/${
+                            payload.endPoint
+                        }?name_like=${payload.query.toUpperCase()}`,
+                    )
+                    .then((res) => {
+                        context.commit('getFilteredData', res.data);
+                    });
+                // }
             });
         },
     },
@@ -90,6 +95,9 @@ export default {
         },
         endPoint(state) {
             return state.endPoint;
+        },
+        sortBy(state) {
+            return state.sort;
         },
     },
 };
