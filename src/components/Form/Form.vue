@@ -8,7 +8,7 @@
             name=""
             id=""
             placeholder="Search"
-            @input="filteredDataProps"
+            @keypress.enter="filteredDataProps"
         />
         <select name="cars" id="cars">
             <option value="volvo">Volvo</option>

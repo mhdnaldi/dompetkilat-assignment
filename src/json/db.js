@@ -11,16 +11,19 @@ const productiveOsf = require('./osf/productive_osf.json');
 const reksadana = require('./reksadana/reksadana.json');
 const sbn = require('./sbn/sbn.json');
 
+console.log(sbn);
+console.log(sbn.contents);
+
 module.exports = () => {
     return {
-        main,
-        invoice,
-        conventional_invoice: conventionalInvoice,
-        productive_invoice: productiveInvoice,
-        osf,
-        conventional_osf: conventionalOsf,
-        productive_osf: productiveOsf,
-        reksadana,
-        sbn,
+        main: main.contents,
+        invoice: invoice.contents,
+        conventional_invoice: conventionalInvoice.contents,
+        productive_invoice: productiveInvoice.contents,
+        osf: osf.contents,
+        conventional_osf: conventionalOsf.contents,
+        productive_osf: productiveOsf.contents,
+        reksadana: reksadana.contents,
+        sbn: sbn.contents,
     };
 };

@@ -27,13 +27,13 @@ export default {
         Form,
     },
     methods: {
-        ...mapActions(['getFilteredData']),
+        ...mapActions(['getFilteredData', 'getInvoiceData']),
         filteredData(event) {
             const data = {
                 query: event.target.value,
                 endPoint: this.endPoint,
             };
-            this.getFilteredData(data);
+            this.getFilteredData(data).then(() => this.getInvoiceData());
         },
     },
     computed: {

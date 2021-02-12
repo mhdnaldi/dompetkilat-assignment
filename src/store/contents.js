@@ -14,6 +14,8 @@ export default {
             state.contents = payload;
         },
         getInvoiceData(state, payload) {
+            // BUG DISINI
+            console.log(payload);
             if (payload.length < 5) {
                 state.invoiceData = payload;
             } else {
@@ -23,6 +25,11 @@ export default {
                     .filter((el) => el !== 'sub');
                 router.push('/data');
             }
+            console.log(state.invoiceData);
+            console.log(state.allData);
+        },
+        getFilteredData(state, payload) {
+            state.allData = payload;
         },
         endPoint(state, payload) {
             state.endPoint = payload;
@@ -33,38 +40,38 @@ export default {
             return new Promise(() => {
                 axios
                     .get('http://localhost:3000/main')
-                    .then((res) =>
-                        context.commit('getData', res.data.contents),
-                    );
+                    .then((res) => context.commit('getData', res.data));
             });
         },
         getInvoiceData(context, payload) {
-            console.log(payload);
             return new Promise(() => {
                 axios
                     .get(`http://localhost:3000/${payload}`)
                     .then(
-                        (res) =>
-                            context.commit('getInvoiceData', res.data.contents),
+                        (res) => context.commit('getInvoiceData', res.data),
                         context.commit('endPoint', payload),
                     );
             });
         },
-        test() {
-            return new Promise(() => {
-                axios
-                    .get(`http://localhost:3000/sbn?contents.type=ST`)
-                    .then((res) => console.log(res));
-            });
-        },
         getFilteredData(context, payload) {
-            console.log(payload);
             return new Promise(() => {
-                axios
-                    .get(
-                        `http://localhost:3000/${payload.endPoint}?contents.name=${payload.query}`,
-                    )
-                    .then((res) => console.log(res));
+                if (payload.query === '') {
+                    axios
+                        .get(`http://localhost:3000/${payload.endPoint}`)
+                        .then((res) => {
+                            context.commit('getFilteredData', res.data);
+                        });
+                } else {
+                    axios
+                        .get(
+                            `http://localhost:3000/${
+                                payload.endPoint
+                            }?name=${payload.query.toUpperCase()}`,
+                        )
+                        .then((res) => {
+                            context.commit('getFilteredData', res.data);
+                        });
+                }
             });
         },
     },
