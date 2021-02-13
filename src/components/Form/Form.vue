@@ -32,17 +32,23 @@ export default {
             sort: '',
         };
     },
-    props: ['filteredDataProps', 'sortProps', 'queryParamsProps'],
+    props: ['filteredDataProps', 'sortProps', 'queryParamsProps', 'test'],
     methods: {
         ...mapActions(['getQueryFilteredData']),
         sortBy(sort) {
             let result = '';
             switch (sort) {
                 case '< 0':
-                    result = `return=asc`;
+                    result =
+                        this.queryParamsProps.query !== ''
+                            ? `&return=${-1}`
+                            : `?return=${-1}`;
                     break;
                 case '> = 0':
-                    result = `return=desc`;
+                    result =
+                        this.queryParamsProps.query !== ''
+                            ? `&return=${1}`
+                            : `?return=${1}`;
                     break;
                 case 'SBR':
                     result =
@@ -82,6 +88,7 @@ export default {
                 endPoint: this.endPoint,
                 sortBy: result,
             };
+            console.log(queryParams);
             this.getQueryFilteredData(queryParams);
         },
     },

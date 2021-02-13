@@ -46,6 +46,13 @@ export default {
                     .then((res) => context.commit('getData', res.data));
             });
         },
+        test() {
+            return new Promise(() => {
+                axios
+                    .get('http://localhost:3000/reksadana')
+                    .then((res) => console.log(res.data));
+            });
+        },
         getInvoiceData(context, payload) {
             return new Promise(() => {
                 axios
@@ -70,7 +77,6 @@ export default {
             });
         },
         getQueryFilteredData(context, payload) {
-            console.log(payload);
             return new Promise(() => {
                 axios
                     .get(

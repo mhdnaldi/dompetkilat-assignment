@@ -28,6 +28,7 @@ export default {
     },
     mounted() {
         this.getData();
+        this.test();
     },
     data() {
         return {
@@ -35,7 +36,7 @@ export default {
         };
     },
     methods: {
-        ...mapActions(['getData', 'getInvoiceData']),
+        ...mapActions(['getData', 'getInvoiceData', 'test']),
         getEndpoint(data, subData) {
             this.showCard = !this.showCard;
             this.getInvoiceData(filteredEndpoint(data, subData));
