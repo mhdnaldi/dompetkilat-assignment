@@ -2,7 +2,11 @@
     <div class="container">
         <Header />
         <Title />
-        <Form :filteredDataProps="filteredData" :sortProps="sortBy" />
+        <Form
+            :filteredDataProps="filteredData"
+            :sortProps="sortBy"
+            :queryParamsProps="queryParams"
+        />
         <Table />
     </div>
 </template>
@@ -17,7 +21,10 @@ import Form from '../components/Form/Form.vue';
 export default {
     data() {
         return {
-            search: '',
+            queryParams: {
+                query: '',
+                endPoint: '',
+            },
         };
     },
     components: {
@@ -29,11 +36,13 @@ export default {
     methods: {
         ...mapActions(['getFilteredData', 'getInvoiceData']),
         filteredData(event) {
-            const data = {
+            this.queryParams = {
                 query: event.target.value,
                 endPoint: this.endPoint,
             };
-            this.getFilteredData(data).then(() => this.getInvoiceData());
+            this.getFilteredData(this.queryParams).then(() =>
+                this.getInvoiceData(),
+            );
         },
     },
     computed: {

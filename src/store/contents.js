@@ -10,20 +10,18 @@ export default {
         allDataKey: [],
         endPoint: '',
         sort: [],
+        queryParams: '',
     },
     mutations: {
         getData(state, payload) {
             state.contents = payload;
         },
         getInvoiceData(state, payload) {
-            // BUG DISINI
-            console.log(payload);
             if (payload.length < 5) {
                 state.invoiceData = payload;
             } else {
                 state.allData = payload;
                 state.sort = sortFilter(state.endPoint);
-                console.log(state.sort);
                 state.allDataKey = Object.keys(payload[0])
                     .map((el) => el)
                     .filter((el) => el !== 'sub');
@@ -37,7 +35,8 @@ export default {
             state.endPoint = payload;
         },
         setSort(state, payload) {
-            state.sort = payload;
+            state.queryParams = payload;
+            console.log(state.queryParams);
         },
     },
     actions: {
@@ -60,23 +59,32 @@ export default {
         },
         getFilteredData(context, payload) {
             return new Promise(() => {
-                // if (payload.query === '') {
-                //     axios
-                //         .get(`http://localhost:3000/${payload.endPoint}`)
-                //         .then((res) => {
-                //             context.commit('getFilteredData', res.data);
-                //         });
-                // } else {
                 axios
                     .get(
                         `http://localhost:3000/${
                             payload.endPoint
-                        }?name_like=${payload.query.toUpperCase()}`,
+                        }?name_like=${payload.query.toUpperCase()}&_order=desc`,
                     )
                     .then((res) => {
                         context.commit('getFilteredData', res.data);
                     });
-                // }
+            });
+        },
+        getQueryFilteredData(context, payload) {
+            console.log(payload);
+            return new Promise(() => {
+                axios
+                    .get(
+                        `http://localhost:3000/${payload.endPoint}${
+                            payload.query !== ''
+                                ? `?name_like=${payload.query.toUpperCase()}`
+                                : ''
+                        }${payload.sortBy}`,
+                    )
+                    .then((res) => {
+                        console.log(res.data);
+                        context.commit('getFilteredData', res.data);
+                    });
             });
         },
     },

@@ -15,7 +15,11 @@
                 </p>
             </div>
         </div>
-        <SubCard :subContent="invoiceData" :getEndpoint="getEndpoint" />
+        <SubCard
+            :subContent="invoiceData"
+            :getEndpoint="getEndpoint"
+            v-if="show"
+        />
     </section>
 </template>
 

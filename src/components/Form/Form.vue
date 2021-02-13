@@ -10,13 +10,12 @@
             placeholder="Search"
             @input="filteredDataProps"
         />
-        <select name="cars" id="cars">
-            <option value="null">All</option>
+        <select v-model="sort" @change="sortBy(sort)">
+            <option value="0">All</option>
             <option
                 v-for="(value, index) in sortProps"
                 :key="index"
-                value="value"
-                @change="sortBy"
+                :value="value"
             >
                 {{ value }}
             </option>
@@ -25,7 +24,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapActions, mapGetters } from 'vuex';
 
 export default {
     data() {
@@ -33,12 +32,63 @@ export default {
             sort: '',
         };
     },
-    props: ['filteredDataProps', 'sortProps'],
+    props: ['filteredDataProps', 'sortProps', 'queryParamsProps'],
     methods: {
-        ...mapMutations('setSort'),
-        sortBy(event) {
-            console.log(event);
+        ...mapActions(['getQueryFilteredData']),
+        ...mapMutations(['setSort']),
+        sortBy(sort) {
+            let result = '';
+            switch (sort) {
+                case '< 0':
+                    result = `return=asc`;
+                    break;
+                case '> = 0':
+                    result = `return=desc`;
+                    break;
+                case 'SBR':
+                    result =
+                        this.queryParamsProps.query !== ''
+                            ? `&type=${sort}`
+                            : `?type=${sort}`;
+                    break;
+                case 'ST':
+                    result =
+                        this.queryParamsProps.query !== ''
+                            ? `&type=${sort}`
+                            : `?type=${sort}`;
+                    break;
+                case 'A':
+                    result =
+                        this.queryParamsProps.query !== ''
+                            ? `&grade=${sort}`
+                            : `?grade=${sort}`;
+                    break;
+                case 'B+':
+                    result =
+                        this.queryParamsProps.query !== ''
+                            ? `&grade=${sort}`
+                            : `?grade=${sort}`;
+                    break;
+                case 'B':
+                    result =
+                        this.queryParamsProps.query !== ''
+                            ? `&grade=${sort}`
+                            : `?grade=${sort}`;
+                    break;
+                default:
+                    result = '';
+            }
+            const queryParams = {
+                ...this.queryParamsProps,
+                endPoint: this.endPoint,
+                sortBy: result,
+            };
+            console.log(queryParams);
+            this.getQueryFilteredData(queryParams);
         },
+    },
+    computed: {
+        ...mapGetters(['endPoint']),
     },
 };
 </script>

@@ -37,7 +37,6 @@ export default {
     methods: {
         ...mapActions(['getData', 'getInvoiceData']),
         getEndpoint(data, subData) {
-            console.log(data, subData);
             this.showCard = !this.showCard;
             this.getInvoiceData(filteredEndpoint(data, subData));
         },
