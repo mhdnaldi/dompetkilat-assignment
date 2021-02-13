@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapMutations, mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
     data() {
@@ -35,7 +35,6 @@ export default {
     props: ['filteredDataProps', 'sortProps', 'queryParamsProps'],
     methods: {
         ...mapActions(['getQueryFilteredData']),
-        ...mapMutations(['setSort']),
         sortBy(sort) {
             let result = '';
             switch (sort) {
@@ -83,7 +82,6 @@ export default {
                 endPoint: this.endPoint,
                 sortBy: result,
             };
-            console.log(queryParams);
             this.getQueryFilteredData(queryParams);
         },
     },

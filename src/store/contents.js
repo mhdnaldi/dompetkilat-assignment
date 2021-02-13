@@ -36,7 +36,6 @@ export default {
         },
         setSort(state, payload) {
             state.queryParams = payload;
-            console.log(state.queryParams);
         },
     },
     actions: {
