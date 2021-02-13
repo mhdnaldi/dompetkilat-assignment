@@ -11,7 +11,6 @@
             @input="filteredDataProps"
         />
         <select v-model="sort" @change="sortBy(sort)">
-            <option value="0">All</option>
             <option
                 v-for="(value, index) in sortProps"
                 :key="index"
@@ -25,6 +24,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import queryParamsValidation from '../../helper/queryParamsValidation';
 
 export default {
     data() {
@@ -32,63 +32,21 @@ export default {
             sort: '',
         };
     },
-    props: ['filteredDataProps', 'sortProps', 'queryParamsProps', 'test'],
+    props: ['filteredDataProps', 'sortProps', 'queryParamsProps'],
     methods: {
         ...mapActions(['getQueryFilteredData']),
         sortBy(sort) {
-            let result = '';
-            switch (sort) {
-                case '< 0':
-                    result =
-                        this.queryParamsProps.query !== ''
-                            ? `&return_gte=${-5}&return_lte=${0}`
-                            : `?return_gte=${-5}&return_lte=${0}`;
-                    break;
-                case '> = 0':
-                    result =
-                        this.queryParamsProps.query !== ''
-                            ? `&return_gte=${0}&return_lte=${5}`
-                            : `?return_gte=${0}&return_lte=${5}`;
-                    break;
-                case 'SBR':
-                    result =
-                        this.queryParamsProps.query !== ''
-                            ? `&type=${sort}`
-                            : `?type=${sort}`;
-                    break;
-                case 'ST':
-                    result =
-                        this.queryParamsProps.query !== ''
-                            ? `&type=${sort}`
-                            : `?type=${sort}`;
-                    break;
-                case 'A':
-                    result =
-                        this.queryParamsProps.query !== ''
-                            ? `&grade=${sort}`
-                            : `?grade=${sort}`;
-                    break;
-                case 'B+':
-                    result =
-                        this.queryParamsProps.query !== ''
-                            ? `&grade=${sort}`
-                            : `?grade=${sort}`;
-                    break;
-                case 'B':
-                    result =
-                        this.queryParamsProps.query !== ''
-                            ? `&grade=${sort}`
-                            : `?grade=${sort}`;
-                    break;
-                default:
-                    result = '';
-            }
+            console.log(sort);
+            this.$emit('query-string', this.sort);
             const queryParams = {
                 ...this.queryParamsProps,
+
                 endPoint: this.endPoint,
-                sortBy: result,
+                sortBy: queryParamsValidation(
+                    sort,
+                    this.queryParamsProps.query,
+                ),
             };
-            console.log(queryParams);
             this.getQueryFilteredData(queryParams);
         },
     },
@@ -131,7 +89,8 @@ select {
     background-color: rgb(151, 150, 150);
     border: none;
     border-radius: 2px;
-    color: #fff;
+    color: #111;
+    text-align: center;
 }
 
 ::placeholder {

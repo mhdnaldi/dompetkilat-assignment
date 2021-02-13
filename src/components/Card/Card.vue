@@ -1,11 +1,11 @@
 <template>
     <section>
-        <div class="card" @click="getEndpoint">
+        <div class="card" @click="getEndpointProps">
             <div class="doc">DOC</div>
             <img src="../../assets/images/docs.png" alt="" />
             <div class="desc">
-                <div class="count">{{ content.count }}</div>
-                <h3>{{ content.name }}</h3>
+                <div class="count">{{ contentProps.count }}</div>
+                <h3>{{ contentProps.name }}</h3>
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Quia dignissimos ducimus nihil dolore laborum molestiae
@@ -16,9 +16,9 @@
             </div>
         </div>
         <SubCard
-            :subContent="invoiceData"
-            :getEndpoint="getEndpoint"
-            v-if="show"
+            :subContentProps="invoiceDataProps"
+            :getEndpointProps="getEndpointProps"
+            v-if="showProps"
         />
     </section>
 </template>
@@ -27,7 +27,12 @@
 import SubCard from './SubCard/SubCard.vue';
 
 export default {
-    props: ['content', 'getEndpoint', 'invoiceData', 'show'],
+    props: [
+        'contentProps',
+        'getEndpointProps',
+        'invoiceDataProps',
+        'showProps',
+    ],
     components: {
         SubCard,
     },

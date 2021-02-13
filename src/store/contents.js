@@ -13,10 +13,10 @@ export default {
         queryParams: '',
     },
     mutations: {
-        getData(state, payload) {
+        setData(state, payload) {
             state.contents = payload;
         },
-        getInvoiceData(state, payload) {
+        setInvoiceData(state, payload) {
             if (payload.length < 5) {
                 state.invoiceData = payload;
             } else {
@@ -28,10 +28,10 @@ export default {
                 router.push('/data');
             }
         },
-        getFilteredData(state, payload) {
+        setFilteredData(state, payload) {
             state.allData = payload;
         },
-        endPoint(state, payload) {
+        setEndPoint(state, payload) {
             state.endPoint = payload;
         },
         setSort(state, payload) {
@@ -43,14 +43,7 @@ export default {
             return new Promise(() => {
                 axios
                     .get('http://localhost:3000/main')
-                    .then((res) => context.commit('getData', res.data));
-            });
-        },
-        test() {
-            return new Promise(() => {
-                axios
-                    .get('http://localhost:3000/reksadana')
-                    .then((res) => console.log(res.data));
+                    .then((res) => context.commit('setData', res.data));
             });
         },
         getInvoiceData(context, payload) {
@@ -58,8 +51,8 @@ export default {
                 axios
                     .get(`http://localhost:3000/${payload}`)
                     .then(
-                        (res) => context.commit('getInvoiceData', res.data),
-                        context.commit('endPoint', payload),
+                        (res) => context.commit('setInvoiceData', res.data),
+                        context.commit('setEndPoint', payload),
                     );
             });
         },
@@ -67,12 +60,14 @@ export default {
             return new Promise(() => {
                 axios
                     .get(
-                        `http://localhost:3000/${
-                            payload.endPoint
-                        }?name_like=${payload.query.toUpperCase()}&_order=desc`,
+                        `http://localhost:3000/${payload.endPoint}${
+                            payload.query !== ''
+                                ? `?name_like=${payload.query.toUpperCase()}`
+                                : ''
+                        }${payload.sortBy}`,
                     )
                     .then((res) => {
-                        context.commit('getFilteredData', res.data);
+                        context.commit('setFilteredData', res.data);
                     });
             });
         },
@@ -87,8 +82,7 @@ export default {
                         }${payload.sortBy}`,
                     )
                     .then((res) => {
-                        console.log(res.data);
-                        context.commit('getFilteredData', res.data);
+                        context.commit('setFilteredData', res.data);
                     });
             });
         },
@@ -111,6 +105,12 @@ export default {
         },
         sortBy(state) {
             return state.sort;
+        },
+        infiniteScroll(state) {
+            return {
+                limit: state.limit,
+                busy: state.busy,
+            };
         },
     },
 };

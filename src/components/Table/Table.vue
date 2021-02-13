@@ -8,7 +8,7 @@
             </tr>
             <tr v-for="(data, index) in allData.data" :key="index">
                 <td>{{ data.name }}</td>
-                <td style="text-align: right">
+                <td>
                     <strong>Rp.{{ data.amount }}</strong>
                 </td>
                 <td>{{ data.tenor || data.return }}</td>
@@ -20,11 +20,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
     computed: {
         ...mapGetters(['allData']),
+        ...mapMutations(['getFilteredData']),
     },
 };
 </script>

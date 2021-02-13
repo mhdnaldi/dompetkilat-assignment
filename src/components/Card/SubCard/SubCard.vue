@@ -1,9 +1,13 @@
 <template>
     <div class="container">
-        <div class="card" v-for="(content, index) in subContent" :key="index">
+        <div
+            class="card"
+            v-for="(content, index) in subContentProps"
+            :key="index"
+        >
             <div class="doc">DOC</div>
             <img src="../../../assets/images/docs.png" alt="" />
-            <div class="desc" @click="getEndpoint(content)">
+            <div class="desc" @click="getEndpointProps(content)">
                 <div class="count">{{ content.count }}</div>
                 <h3>{{ content.name }}</h3>
                 <p>
@@ -20,7 +24,7 @@
 
 <script>
 export default {
-    props: ['subContent', 'invoice', 'getEndpoint'],
+    props: ['subContentProps', 'getEndpointProps'],
 };
 </script>
 

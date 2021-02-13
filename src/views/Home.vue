@@ -5,10 +5,10 @@
         <Card
             v-for="(content, index) in contents"
             :key="index"
-            :content="content"
-            :invoiceData="invoiceData"
-            :getEndpoint="(data) => getEndpoint(content, data)"
-            :show="showCard"
+            :contentProps="content"
+            :invoiceDataProps="invoiceData"
+            :getEndpointProps="(data) => getEndpoint(content, data)"
+            :showProps="showCard"
         />
     </div>
 </template>
@@ -28,7 +28,6 @@ export default {
     },
     mounted() {
         this.getData();
-        this.test();
     },
     data() {
         return {
@@ -36,7 +35,7 @@ export default {
         };
     },
     methods: {
-        ...mapActions(['getData', 'getInvoiceData', 'test']),
+        ...mapActions(['getData', 'getInvoiceData']),
         getEndpoint(data, subData) {
             this.showCard = !this.showCard;
             this.getInvoiceData(filteredEndpoint(data, subData));
