@@ -41,14 +41,14 @@ export default {
                 case '< 0':
                     result =
                         this.queryParamsProps.query !== ''
-                            ? `&return=${-1}`
-                            : `?return=${-1}`;
+                            ? `&return_gte=${-5}&return_lte=${0}`
+                            : `?return_gte=${-5}&return_lte=${0}`;
                     break;
                 case '> = 0':
                     result =
                         this.queryParamsProps.query !== ''
-                            ? `&return=${1}`
-                            : `?return=${1}`;
+                            ? `&return_gte=${0}&return_lte=${5}`
+                            : `?return_gte=${0}&return_lte=${5}`;
                     break;
                 case 'SBR':
                     result =
